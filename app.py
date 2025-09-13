@@ -8,13 +8,13 @@ posts, comments = {}, {}
 
 @app.route("/", methods=["GET"])
 def home():
-    return jsonify({"message": "Blog API is running"}), 200
+    return jsonify({"message": "Running"}), 200
 
 @app.route("/posts", methods=["POST"])
 def create_post():
     data = request.get_json()
     if not data or "title" not in data or "content" not in data:
-        return jsonify({"error": "Title and content required"}), 400
+        return jsonify({"error": "Please Mension all the Details Req"}), 400
     post_id = str(uuid.uuid4())
     post = {
         "id": post_id,
@@ -78,3 +78,4 @@ def delete_comments(cid):
 
 if __name__ == "__main__":
     app.run(debug=True)
+
